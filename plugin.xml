@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="net.extrategy.cordova" version="0.0.1">
+    <name>khenshin</name>
+    <description>khenshin Cordova Plugin</description>
+    <license>MIT</license>
+    <author>khipu</author>
+
+    <platform name="android">
+        <framework src="src/android/khenshin.gradle" custom="true" type="gradleReference"/>
+    </platform>
+
+    <platform name="ios">
+
+    </platform>
+
+</plugin>
