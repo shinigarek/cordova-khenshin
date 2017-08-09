@@ -1,0 +1,27 @@
+{
+  "name": "cordova-khenshin",
+  "version": "0.0.1",
+  "description": "khenshin Cordova Plugin",
+  "cordova": {
+    "id": "net.extrategy.cordova",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khipu/cordova-khenshin.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "khipu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khipu/cordova-khenshin/issues"
+  },
+  "homepage": "https://github.com/khipu/cordova-khenshin#readme"
+}
