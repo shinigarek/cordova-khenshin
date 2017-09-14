@@ -23,14 +23,12 @@ public class CordovaKhenshinApplication extends Application implements KhenshinA
 
 		khenshin = new Khenshin.KhenshinBuilder()
 				.setApplication(this)
-				.setTaskAPIUrl("https://cmr.browser2app.com/api/automata/")
-				.setDumpAPIUrl("https://cmr.browser2app.com/api/automata/")
-				//.setTaskAPIUrl("https://khipu.com/app/2.0/")
-				//.setDumpAPIUrl("https://khipu.com/cerebro/")
+				.setTaskAPIUrl("https://khipu.com/app/2.0/")
+				.setDumpAPIUrl("https://khipu.com/cerebro/")
 				.setMainButtonStyle(Khenshin.CONTINUE_BUTTON_IN_FORM)
 				.setAllowCredentialsSaving(true)
 				.setHideWebAddressInformationInForm(false)
-				.setAutomatonTimeout(50)
+				.setAutomatonTimeout(90)
 				.setSkipExitPage(false)
 				.build();
 	}

@@ -16,9 +16,10 @@
         <framework src="src/android/khenshin.gradle" custom="true" type="gradleReference"/>
 
         <source-file src="src/android/com/browser2app/CordovaKhenshinApplication.java" target-dir="src/com/browser2app"/>
-
-
         <source-file src="src/android/com/browser2app/KhenshinPlugin.java" target-dir="src/com/browser2app"/>
+        <source-file src="src/android/com/browser2app/RipleyFittingInterface.java" target-dir="src/com/browser2app"/>
+        <source-file src="src/android/com/browser2app/PaymentCreateResponse.java" target-dir="src/com/browser2app"/>
+
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Khenshin">
                 <param name="android-package" value="com.browser2app.KhenshinPlugin"/>
@@ -34,7 +35,7 @@
         <dependency id="cordova-plugin-cocoapod-support"/>
         <pods-config ios-min-version="9.0" use-frameworks="true"/>
 
-        <pod name="khenshin" git="git@bitbucket.org:khipu/khenshin-pod.git" tag="1.182"/>
+        <pod name="khenshin" git="git@bitbucket.org:khipu/khenshin-pod.git" tag="1.186"/>
 
         <!-- this entry is to statically preserve entitlements setting that is usually being set by `cordova build` dynamically (which leads to a build error) -->
         <!--<preference name="ios-XCBuildConfiguration-CODE_SIGN_ENTITLEMENTS" value="$(PROJECT_DIR)/$(PROJECT_NAME)/Entitlements-$(CONFIGURATION).plist" />-->
