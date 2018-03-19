@@ -4,5 +4,8 @@ module.exports = {
 	},
 	startByAutomatonId: function (params, successCallback, errorCallback) {
 		cordova.exec(successCallback, errorCallback, "Khenshin", "startByAutomatonId", params);
+	},
+	createPayment: function (params, successCallback, errorCallback) {
+		cordova.exec(successCallback, errorCallback, "Khenshin", "createPayment", params);
 	}
 };
