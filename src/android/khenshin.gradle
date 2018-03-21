@@ -1,6 +1,9 @@
 repositories{
 	jcenter()
 	maven {
+		url "https://maven.google.com"
+	}
+	maven {
 		url 'https://dev.khipu.com/nexus/content/repositories/browser2app'
 		credentials {
 			username khipuRepoUsername
