@@ -13,7 +13,7 @@ repositories{
 }
 
 dependencies {
-	compile 'com.browser2app:khenshin:2.9.3'
+	compile 'com.browser2app:khenshin:2.9.8'
 }
 
 android {
