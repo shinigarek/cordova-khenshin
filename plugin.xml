@@ -20,6 +20,8 @@
         <source-file src="src/android/com/browser2app/RipleyFittingInterface.java" target-dir="src/com/browser2app"/>
         <source-file src="src/android/com/browser2app/PaymentCreateResponse.java" target-dir="src/com/browser2app"/>
 
+        <source-file src="src/android/khenshincolors.xml" target-dir="res/values"/>
+
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Khenshin">
                 <param name="android-package" value="com.browser2app.KhenshinPlugin"/>
@@ -27,7 +29,6 @@
         </config-file>
 
 
-        <hook type="before_plugin_install" src="scripts/android/beforeInstall.js"/>
         <hook type="before_plugin_install" src="scripts/android/beforeInstall.js"/>
     </platform>
 
