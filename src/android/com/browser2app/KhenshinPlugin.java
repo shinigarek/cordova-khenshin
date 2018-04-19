@@ -12,6 +12,7 @@ import com.browser2app.khenshin.domain.ApiCallBack;
 import com.browser2app.khenshin.ISO8601;
 import android.content.Intent;
 import android.os.Bundle;
+import android.app.Activity;
 import java.util.UUID;
 import java.util.Map;
 import java.util.HashMap;
@@ -50,6 +51,8 @@ public class KhenshinPlugin extends CordovaPlugin {
 
 	private static final int START_PAYMENT_REQUEST_CODE = 101;
 
+	CallbackContext currentCallbackContext;
+
 	public KhenshinPlugin() {
 
 		Gson gson = new GsonBuilder()
@@ -75,6 +78,7 @@ public class KhenshinPlugin extends CordovaPlugin {
 
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		CordovaArgs cordovaArgs = new CordovaArgs(args);
+		currentCallbackContext = callbackContext;
 		if("startByPaymentId".equals(action)) {
 			startByPaymentId(cordovaArgs.getString(0));
 			return true;
@@ -127,6 +131,7 @@ public class KhenshinPlugin extends CordovaPlugin {
 		intent.putExtra(KhenshinConstants.EXTRA_PAYMENT_ID, paymentId);
 		intent.putExtra(KhenshinConstants.EXTRA_FORCE_UPDATE_PAYMENT, false);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		cordova.setActivityResultCallback(this);
 		cordova.getActivity().startActivityForResult(intent, START_PAYMENT_REQUEST_CODE);
 	}
 
@@ -143,6 +148,19 @@ public class KhenshinPlugin extends CordovaPlugin {
 		intent.putExtra(KhenshinConstants.EXTRA_AUTOMATON_PARAMETERS, params);
 		intent.putExtra(KhenshinConstants.EXTRA_FORCE_UPDATE_PAYMENT, false);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		cordova.setActivityResultCallback(this);
 		cordova.getActivity().startActivityForResult(intent, START_PAYMENT_REQUEST_CODE);
+
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		if(requestCode == START_PAYMENT_REQUEST_CODE){
+			if(resultCode == Activity.RESULT_OK){
+				currentCallbackContext.success("OK");
+			} else {
+				currentCallbackContext.error("ERROR");
+			}
+		}
 	}
 }
