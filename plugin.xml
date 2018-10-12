@@ -30,13 +30,14 @@
 
 
         <hook type="before_plugin_install" src="scripts/android/beforeInstall.js"/>
+        <hook type="before_plugin_uninstall" src="scripts/android/beforeUninstall.js"/>
     </platform>
 
     <platform name="ios">
         <dependency id="cordova-plugin-cocoapod-support"/>
         <pods-config ios-min-version="9.0" use-frameworks="true"/>
 
-        <pod name="khenshin" git="git@bitbucket.org:khipu/khenshin-pod.git" tag="1.224"/>
+        <pod name="khenshin" git="git@bitbucket.org:khipu/khenshin-pod.git" tag="1.380"/>
 
         <!-- this entry is to statically preserve entitlements setting that is usually being set by `cordova build` dynamically (which leads to a build error) -->
         <!--<preference name="ios-XCBuildConfiguration-CODE_SIGN_ENTITLEMENTS" value="$(PROJECT_DIR)/$(PROJECT_NAME)/Entitlements-$(CONFIGURATION).plist" />-->
