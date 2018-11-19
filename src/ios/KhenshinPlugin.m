@@ -30,23 +30,29 @@
                                             forKey:@"KH_SHOW_HOW_IT_WORKS"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
-    [KhenshinInterface initWithNavigationBarCenteredLogo:[[UIImage alloc] init]
-                               NavigationBarLeftSideLogo:[[UIImage alloc] init]
-                                         automatonAPIURL:[[NSURL alloc] initWithString:@"https://khipu.com/app/2.0/"]
-                                           cerebroAPIURL:[[NSURL alloc] initWithString:@"https://khipu.com/cerebro/"]
-                                           processHeader:(UIView<ProcessHeader>*)[self processHeader]
-                                          processFailure:nil
-                                          processSuccess:nil
-                                          processWarning:nil
-                                  allowCredentialsSaving:YES
-                                         mainButtonStyle:KHMainButtonFatOnForm
-                         hideWebAddressInformationInForm:NO
-                                useBarCenteredLogoInForm:NO
-                                          principalColor:[UIColor lightGrayColor]
-                                    darkerPrincipalColor:[UIColor darkGrayColor]
-                                          secondaryColor:[UIColor redColor]
-                                   navigationBarTextTint:[UIColor whiteColor]
-                                                    font:nil];
+    [KhenshinInterface initWithBuilderBlock:^(KhenshinBuilder *builder){
+        builder.cerebroAPIURL = @"https://khipu.com/cerebro/";
+        builder.automatonAPIURL = @"https://khipu.com/app/2.0/";
+        builder.barCenteredLogo = [UIImage imageNamed:@"Bar Logo"];
+        builder.barLeftSideLogo = [[UIImage alloc] init];
+        builder.processHeader = nil; //processHeaderObj
+        builder.skipExitPage = NO;
+        builder.keepCookies = YES;
+        builder.mainButtonStyle = KHMainButtonFatOnForm;
+
+        builder.cellPadding = 30;
+        builder.hideWebAddressInformationInForm = TRUE;
+
+        builder.cellSeparatorHeight = 2.f;
+        builder.barTintColor = [UIColor whiteColor];
+        builder.navigationBarTextTint = [UIColor cyanColor];
+        builder.textColorHex = @"#ff00ff";
+        builder.principalColor = [UIColor lightGrayColor];
+        builder.secondaryColor = [UIColor redColor];
+        builder.darkerPrincipalColor = [UIColor darkGrayColor];
+
+        builder.allowCredentialsSaving = YES;
+    }];
 }
 
 - (void)startByPaymentId:(CDVInvokedUrlCommand*)command
