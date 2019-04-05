@@ -35,7 +35,7 @@
         builder.automatonAPIURL = @"https://khipu.com/app/2.0/";
         builder.barCenteredLogo = [UIImage imageNamed:@"Bar Logo"];
         builder.barLeftSideLogo = [[UIImage alloc] init];
-        builder.processHeader = nil; //processHeaderObj
+        builder.processHeader = [self processHeader];
         builder.skipExitPage = NO;
         builder.keepCookies = YES;
         builder.mainButtonStyle = KHMainButtonFatOnForm;

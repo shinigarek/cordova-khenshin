@@ -21,6 +21,7 @@
         <source-file src="src/android/com/browser2app/PaymentCreateResponse.java" target-dir="src/com/browser2app"/>
 
         <source-file src="src/android/khenshincolors.xml" target-dir="res/values"/>
+        <source-file src="src/android/khenshin_process_header.xml" target-dir="res/layout"/>
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Khenshin">
