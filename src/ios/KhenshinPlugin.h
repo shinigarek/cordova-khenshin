@@ -8,4 +8,5 @@
 
 - (void)createPayment:(CDVInvokedUrlCommand*)command;
 
+- (UIColor *)colorFromHexString:(NSString* )hexString;
 @end
