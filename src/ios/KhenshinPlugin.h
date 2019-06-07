@@ -6,6 +6,4 @@
 
 - (void)startByAutomatonId:(CDVInvokedUrlCommand*)command;
 
-- (void)createPayment:(CDVInvokedUrlCommand*)command;
-
 @end
