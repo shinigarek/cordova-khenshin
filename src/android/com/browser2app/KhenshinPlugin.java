@@ -39,8 +39,6 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import com.browser2app.RipleyFittingInterface;
-
 public class KhenshinPlugin extends CordovaPlugin {
 
 	private static final String TAG = KhenshinPlugin.class.getSimpleName();
