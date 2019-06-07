@@ -31,7 +31,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     [KhenshinInterface initWithBuilderBlock:^(KhenshinBuilder *builder){
-        builder.APIURL = @"https://khipu.com/app/enc/";
+        builder.APIUrl = @"https://khipu.com/app/enc/";
         builder.barCenteredLogo = [UIImage imageNamed:@"Bar Logo"];
         builder.barLeftSideLogo = [[UIImage alloc] init];
         builder.processHeader = [self processHeader];

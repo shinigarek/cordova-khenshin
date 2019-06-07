@@ -1,43 +1,18 @@
 package com.browser2app;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import com.browser2app.khenshin.KhenshinApplication;
+import com.browser2app.khenshin.KhenshinConstants;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaArgs;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaArgs;
-import com.browser2app.khenshin.Khenshin;
-import com.browser2app.khenshin.KhenshinConstants;
-import com.browser2app.khenshin.KhenshinApplication;
-import com.browser2app.khenshin.domain.ApiCallBack;
-import com.browser2app.khenshin.ISO8601;
-import android.content.Intent;
-import android.os.Bundle;
-import android.app.Activity;
-import java.util.UUID;
-import java.util.Map;
+
 import java.util.HashMap;
-import com.browser2app.khenshin.LogWrapper;
-
-import okhttp3.FormBody;
-import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-
-import java.util.concurrent.TimeUnit;
-
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import java.util.Map;
 
 public class KhenshinPlugin extends CordovaPlugin {
 
@@ -45,7 +20,7 @@ public class KhenshinPlugin extends CordovaPlugin {
 
 	private static final int START_PAYMENT_REQUEST_CODE = 101;
 
-	CallbackContext currentCallbackContext;
+	private CallbackContext currentCallbackContext;
 
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		CordovaArgs cordovaArgs = new CordovaArgs(args);
@@ -54,7 +29,7 @@ public class KhenshinPlugin extends CordovaPlugin {
 			startByPaymentId(cordovaArgs.getString(0));
 			return true;
 		} else if ("startByAutomatonId".equals(action)) {
-			Map<String, String> params = new HashMap();
+			Map<String, String> params = new HashMap<>();
 			for(int i = 1; i < args.length(); i++) {
 				String[] kv = cordovaArgs.getString(i).split(":");
 				params.put(kv[0], kv[1]);

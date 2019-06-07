@@ -1,14 +1,9 @@
 package com.browser2app;
 
 import android.app.Application;
-import android.os.Build;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-
 import com.browser2app.khenshin.Khenshin;
-import com.browser2app.khenshin.KhenshinInterface;
 import com.browser2app.khenshin.KhenshinApplication;
-import com.browser2app.khenshin.automaton.WebClient;
+import com.browser2app.khenshin.KhenshinInterface;
 
 public class CordovaKhenshinApplication extends Application implements KhenshinApplication{
 
