@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khipu/cordova-khenshin.git"
+    "url": "git+https://bitbucket.org/narki_dev/cordova-khenshin.git"
   },
   "keywords": [
     "ecosystem:cordova",
@@ -23,5 +23,5 @@
   "bugs": {
     "url": "https://github.com/khipu/cordova-khenshin/issues"
   },
-  "homepage": "https://github.com/khipu/cordova-khenshin#readme"
+  "homepage": "https://bitbucket.org/narki_dev/cordova-khenshin#readme"
 }
