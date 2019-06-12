@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/narki_dev/cordova-khenshin.git"
+    "url": "git+https://github.com/shinigarek/cordova-khenshin.git"
   },
   "keywords": [
     "ecosystem:cordova",
@@ -21,7 +21,7 @@
   "author": "khipu",
   "license": "MIT",
   "bugs": {
-    "url": "https://bitbucket.org/narki_dev/cordova-khenshin/issues"
+    "url": "https://github.com/shinigarek/cordova-khenshin/issues"
   },
-  "homepage": "https://bitbucket.org/narki_dev/cordova-khenshin#readme"
+  "homepage": "https://github.com/shinigarek/cordova-khenshin#readme"
 }
