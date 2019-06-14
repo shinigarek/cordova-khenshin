@@ -1,6 +1,6 @@
 {
   "name": "cordova-khenshin",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "khenshin Cordova Plugin",
   "cordova": {
     "id": "cordova-khenshin",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shinigarek/cordova-khenshin.git"
+    "url": "git+https://github.com/khipu/cordova-khenshin.git"
   },
   "keywords": [
     "ecosystem:cordova",
@@ -21,7 +21,7 @@
   "author": "khipu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shinigarek/cordova-khenshin/issues"
+    "url": "https://github.com/khipu/cordova-khenshin/issues"
   },
-  "homepage": "https://github.com/shinigarek/cordova-khenshin#readme"
+  "homepage": "https://github.com/khipu/cordova-khenshin#readme"
 }
