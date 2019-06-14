@@ -23,7 +23,7 @@ public class CordovaKhenshinApplication extends Application implements KhenshinA
 				.setAllowCredentialsSaving(true)
 				.setHideWebAddressInformationInForm(true)
 				.setAutomatonTimeout(90)
-				.setSkipExitPage(false)
+				.setSkipExitPage(true)
 				.build();
 	}
 

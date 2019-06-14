@@ -6,4 +6,6 @@
 
 - (void)startByAutomatonId:(CDVInvokedUrlCommand*)command;
 
+- (UIColor *)colorFromHexString:(NSString* )hexString;
+
 @end
