@@ -53,7 +53,7 @@
         builder.cellSeparatorHeight = 2.f;
         builder.barTintColor = [self colorFromHexString:@"#911c80"];
         builder.navigationBarTextTint = [self colorFromHexString:@"#ffffff"];
-        builder.textColorHex = [self colorFromHexString:@"#911c80"];
+         builder.textColorHex = @"#ff00ff";
         builder.principalColor = [self colorFromHexString:@"#911c80"];
         builder.secondaryColor = [self colorFromHexString:@"#ffffff"];
         builder.darkerPrincipalColor = [self colorFromHexString:@"#911c80"];
