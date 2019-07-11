@@ -1,6 +1,6 @@
 {
   "name": "cordova-khenshin",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "khenshin Cordova Plugin",
   "cordova": {
     "id": "cordova-khenshin",
