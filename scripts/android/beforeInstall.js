@@ -1,6 +1,6 @@
 module.exports = function(ctx) {
-	var fs = ctx.requireCordovaModule('fs'),
-		path = ctx.requireCordovaModule('path'),
+	var fs = require('fs'),
+		path = require('path'),
 		xml = ctx.requireCordovaModule('cordova-common').xmlHelpers;
 
 	var manifestPath = path.join(ctx.opts.projectRoot, 'platforms/android/app/src/main/AndroidManifest.xml');
