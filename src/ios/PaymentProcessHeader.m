@@ -7,7 +7,7 @@
 //
 
 #import "PaymentProcessHeader.h"
-#import "UIImageView+AFNetworking.h"
+// #import "UIImageView+AFNetworking.h"
 
 @interface PaymentProcessHeader()
 
