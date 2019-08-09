@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-khenshin" version="0.0.11">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-khenshin" version="0.0.12">
     <name>khenshin</name>
     <description>khenshin Cordova Plugin</description>
     <license>MIT</license>
@@ -33,10 +33,21 @@
     </platform>
 
     <platform name="ios">
-        <dependency id="cordova-plugin-cocoapod-support"/>
-        <pods-config ios-min-version="9.0" use-frameworks="true"/>
-
-        <pod name="khenshin" git="https://github.com/khipu/khenshin-pod.git" tag="1.512"/>
+        <podspec>
+            <config>
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="Firebase/Core" spec="6.3.0"/>
+                <pod name="Firebase/Auth" spec="6.3.0"/>
+                <pod name="Firebase/Messaging" spec="6.3.0"/>
+                <pod name="Firebase/Performance" spec="6.3.0"/>
+                <pod name="Firebase/RemoteConfig" spec="6.3.0"/>
+                <pod name="Fabric" spec="1.9.0"/>
+                <pod name="Crashlytics" spec="3.12.0"/>
+                <pod name="khenshin" git="https://github.com/khipu/khenshin-pod.git" tag="1.512"/>
+            </pods>
+        </podspec>
 
         <!-- this entry is to statically preserve entitlements setting that is usually being set by `cordova build` dynamically (which leads to a build error) -->
         <!--<preference name="ios-XCBuildConfiguration-CODE_SIGN_ENTITLEMENTS" value="$(PROJECT_DIR)/$(PROJECT_NAME)/Entitlements-$(CONFIGURATION).plist" />-->
