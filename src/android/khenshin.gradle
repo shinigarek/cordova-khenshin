@@ -5,7 +5,7 @@ repositories{
 }
 
 dependencies {
-	compile 'com.browser2app:khenshin:5.1.9'
+	compile 'com.browser2app:khenshin:+'
 }
 
 android {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-khenshin" version="0.0.15">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-khenshin" version="0.0.16">
     <name>khenshin</name>
     <description>khenshin Cordova Plugin</description>
     <license>MIT</license>
@@ -38,7 +38,7 @@
                 <source url="https://github.com/CocoaPods/Specs.git"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="khenshin" git="https://github.com/khipu/khenshin-pod.git" tag="1.548"/>
+                <pod name="khenshin"/>
             </pods>
         </podspec>
 
