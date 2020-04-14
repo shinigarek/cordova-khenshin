@@ -20,11 +20,11 @@ public class KhenshinPlugin extends CordovaPlugin {
 
 	private static final int START_PAYMENT_REQUEST_CODE = 101;
 
-	private CallbackContext currentCallbackContext;
+	private static CallbackContext currentCallbackContext;
 
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		CordovaArgs cordovaArgs = new CordovaArgs(args);
-		currentCallbackContext = callbackContext;
+		KhenshinPlugin.currentCallbackContext = callbackContext;
 		if("startByPaymentId".equals(action)) {
 			startByPaymentId(cordovaArgs.getString(0));
 			return true;
@@ -71,9 +71,9 @@ public class KhenshinPlugin extends CordovaPlugin {
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		if(requestCode == START_PAYMENT_REQUEST_CODE){
 			if(resultCode == Activity.RESULT_OK){
-				currentCallbackContext.success("OK");
+				KhenshinPlugin.currentCallbackContext.success("OK");
 			} else {
-				currentCallbackContext.error("ERROR");
+				KhenshinPlugin.currentCallbackContext.error("ERROR");
 			}
 		}
 	}
