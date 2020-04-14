@@ -33,6 +33,9 @@
     </platform>
 
     <platform name="ios">
+        <config-file parent="UIUserInterfaceStyle" target="*-Info.plist">
+            <string>Light</string>
+        </config-file>
         <podspec>
             <config>
                 <source url="https://github.com/CocoaPods/Specs.git"/>
