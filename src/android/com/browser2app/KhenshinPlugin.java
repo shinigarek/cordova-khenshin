@@ -13,6 +13,7 @@ import org.json.JSONException;
 
 import java.util.HashMap;
 import java.util.Map;
+import android.util.Log;
 
 public class KhenshinPlugin extends CordovaPlugin {
 
@@ -20,11 +21,12 @@ public class KhenshinPlugin extends CordovaPlugin {
 
 	private static final int START_PAYMENT_REQUEST_CODE = 101;
 
-	private static CallbackContext currentCallbackContext;
+	private CallbackContext currentCallbackContext;
 
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+		Log.d(TAG, "EXECUTE " + action + " callback " + callbackContext);
 		CordovaArgs cordovaArgs = new CordovaArgs(args);
-		KhenshinPlugin.currentCallbackContext = callbackContext;
+		currentCallbackContext = callbackContext;
 		if("startByPaymentId".equals(action)) {
 			startByPaymentId(cordovaArgs.getString(0));
 			return true;
@@ -69,12 +71,32 @@ public class KhenshinPlugin extends CordovaPlugin {
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		Log.d(TAG, "onActivityResult callback " + currentCallbackContext);
 		if(requestCode == START_PAYMENT_REQUEST_CODE){
 			if(resultCode == Activity.RESULT_OK){
-				KhenshinPlugin.currentCallbackContext.success("OK");
+				currentCallbackContext.success("OK");
 			} else {
-				KhenshinPlugin.currentCallbackContext.error("ERROR");
+				currentCallbackContext.error("ERROR");
 			}
 		}
+	}
+
+	@Override
+	public void onRestoreStateForActivityResult(Bundle state, CallbackContext callbackContext) {
+		Log.d(TAG, "onRestoreStateForActivityResult callback " + callbackContext);
+		currentCallbackContext = callbackContext;
+	}
+
+	@Override
+	public Bundle onSaveInstanceState() {
+		Log.d(TAG, "onSaveInstanceState");
+		Bundle toSave = new Bundle();
+		toSave.putString("save", "this");
+		return toSave;
+	}
+
+	@Override
+	public void onDestroy() {
+		Log.d(TAG, "onDestroy");
 	}
 }
