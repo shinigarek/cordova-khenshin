@@ -27,7 +27,7 @@ public class KhenshinPlugin extends CordovaPlugin {
 	protected void pluginInitialize() {
 		if(!Khenshin.isInitialized()) {
 			new Khenshin.KhenshinBuilder()
-					.setApplication(this)
+					.setApplication(cordova.getContext().getApplicationContext())
 					.setAPIUrl("https://khipu.com/app/enc/")
 					.setMainButtonStyle(Khenshin.CONTINUE_BUTTON_IN_FORM)
 					.setAllowCredentialsSaving(true)
