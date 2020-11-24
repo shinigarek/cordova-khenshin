@@ -3,7 +3,6 @@ package com.browser2app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import com.browser2app.khenshin.KhenshinApplication;
 import com.browser2app.khenshin.KhenshinConstants;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaArgs;
@@ -22,6 +21,21 @@ public class KhenshinPlugin extends CordovaPlugin {
 	private static final int START_PAYMENT_REQUEST_CODE = 101;
 
 	private CallbackContext currentCallbackContext;
+
+	@Override
+	protected void pluginInitialize() {
+		if(!Khenshin.isInitialized()) {
+			new Khenshin.KhenshinBuilder()
+					.setApplication(this)
+					.setAPIUrl("https://khipu.com/app/enc/")
+					.setMainButtonStyle(Khenshin.CONTINUE_BUTTON_IN_FORM)
+					.setAllowCredentialsSaving(true)
+					.setHideWebAddressInformationInForm(true)
+					.setAutomatonTimeout(90)
+					.setSkipExitPage(false)
+					.build();
+		}
+	}
 
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		Log.d(TAG, "EXECUTE " + action + " callback " + callbackContext);
@@ -43,7 +57,7 @@ public class KhenshinPlugin extends CordovaPlugin {
 	}
 
 	void startByPaymentId(String paymentId) {
-		Intent intent = ((KhenshinApplication)cordova.getActivity().getApplicationContext()).getKhenshin().getStartTaskIntent();
+		Intent intent = Khenshin.getInstance().getStartTaskIntent();
 		intent.putExtra(KhenshinConstants.EXTRA_PAYMENT_ID, paymentId);
 		intent.putExtra(KhenshinConstants.EXTRA_FORCE_UPDATE_PAYMENT, false);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -52,7 +66,7 @@ public class KhenshinPlugin extends CordovaPlugin {
 	}
 
 	void startByAutomatonId(String automatonId, Map<String, String> map) {
-		Intent intent = ((KhenshinApplication)cordova.getActivity().getApplicationContext()).getKhenshin().getStartTaskIntent();
+		Intent intent = Khenshin.getInstance().getStartTaskIntent();
 		intent.putExtra(KhenshinConstants.EXTRA_AUTOMATON_ID, automatonId);
 		Bundle params = new Bundle();
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-khenshin" version="0.0.19">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-khenshin" version="0.0.20">
     <name>khenshin</name>
     <description>khenshin Cordova Plugin</description>
     <license>MIT</license>
@@ -15,7 +15,6 @@
     <platform name="android">
         <framework src="src/android/khenshin.gradle" custom="true" type="gradleReference"/>
 
-        <source-file src="src/android/com/browser2app/CordovaKhenshinApplication.java" target-dir="src/com/browser2app"/>
         <source-file src="src/android/com/browser2app/KhenshinPlugin.java" target-dir="src/com/browser2app"/>
 
         <source-file src="src/android/khenshincolors.xml" target-dir="res/values"/>
