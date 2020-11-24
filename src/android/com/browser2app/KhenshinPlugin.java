@@ -1,6 +1,7 @@
 package com.browser2app;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import com.browser2app.khenshin.KhenshinConstants;
@@ -27,7 +28,7 @@ public class KhenshinPlugin extends CordovaPlugin {
 	protected void pluginInitialize() {
 		if(!Khenshin.isInitialized()) {
 			new Khenshin.KhenshinBuilder()
-					.setApplication(cordova.getContext().getApplicationContext())
+					.setApplication((Application)(cordova.getContext().getApplicationContext()))
 					.setAPIUrl("https://khipu.com/app/enc/")
 					.setMainButtonStyle(Khenshin.CONTINUE_BUTTON_IN_FORM)
 					.setAllowCredentialsSaving(true)
