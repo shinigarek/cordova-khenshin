@@ -7,7 +7,6 @@
 //
 
 #import "PaymentProcessHeader.h"
-#import "UIImageView+AFNetworking.h"
 
 @interface PaymentProcessHeader()
 
@@ -20,19 +19,19 @@
                  merchantName:(NSString*) merchantName
              merchantImageURL:(NSString*) merchantImageURL
                 paymentMethod:(NSString *) paymentMethod {
-    
+
     [[self amount] setText:[NSString stringWithFormat:@"%@",amount]];
     [[self subject] setText:[NSString stringWithFormat:@"%@",subject]];
     [self downloadMerchantImageWithMerchantImageURL:merchantImageURL];
 }
 
 - (void)downloadMerchantImageWithMerchantImageURL:(NSString*) pictureURL {
-    
-    
+
+
     NSURLRequest *merchantPictureRequest = [NSURLRequest requestWithURL:[self safeURLWithString:pictureURL]
                                                             cachePolicy:NSURLRequestReturnCacheDataElseLoad
                                                         timeoutInterval:90];
-    
+
     [self.merchantImage setImageWithURLRequest:merchantPictureRequest
                               placeholderImage:[UIImage imageNamed:@"Bank"]
                                        success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
@@ -46,7 +45,7 @@
 }
 
 - (NSURL *) safeURLWithString:(NSString *)URLString {
-    
+
     return [NSURL URLWithString:[URLString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
 }
 @end

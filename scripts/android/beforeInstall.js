@@ -10,8 +10,6 @@ module.exports = function(ctx) {
 	}
 
 
-	doc.getroot().find('./application').attrib['android:name'] = 'com.browser2app.CordovaKhenshinApplication';
-
 	//write the manifest file
 	fs.writeFileSync(manifestPath, doc.write({indent: 4}), 'utf-8');
 
