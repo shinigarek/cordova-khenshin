@@ -26,22 +26,10 @@
 }
 
 - (void)downloadMerchantImageWithMerchantImageURL:(NSString*) pictureURL {
-
-
-    NSURLRequest *merchantPictureRequest = [NSURLRequest requestWithURL:[self safeURLWithString:pictureURL]
-                                                            cachePolicy:NSURLRequestReturnCacheDataElseLoad
-                                                        timeoutInterval:90];
-
-    [self.merchantImage setImageWithURLRequest:merchantPictureRequest
-                              placeholderImage:[UIImage imageNamed:@"Bank"]
-                                       success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-
-                                           [self.merchantImage setImage:image];
-                                       } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-
-                                           NSLog(@"failed loading: %@", error);
-                                       }
-     ];
+    NSURL *url = [self safeURLWithString:pictureURL];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *img = [[UIImage alloc] initWithData:data];
+    [self.merchantImage setImage:img];
 }
 
 - (NSURL *) safeURLWithString:(NSString *)URLString {
